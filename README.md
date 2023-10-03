@@ -12,8 +12,6 @@ This action deploys a Stack to AWS using the Cloud Development Kit (CDK).
 
 ## Action Outputs
 
-## `stack-output`
-
 | *Output*     | *type* | *Description*                                            |
 |--------------|--------|----------------------------------------------------------|
 | stack-output | string | The JSON contents of all CDKOutputs defined in the Stack |
