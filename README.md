@@ -1,34 +1,43 @@
-# GitHub Action: `deploy-aws-cdk-stack`
+# GitHub Action: Deploy AWS CDK Stack
 
 This action deploys a Stack to AWS using the Cloud Development Kit (CDK).
 
 ## Action Inputs
 
-### `stack-id`
-
-**Required** 
-
-The ID of the Stack to deploy.
-
-### `add-branch-suffix`
-
-**Optional**
-
-If true, appends a short hash of the Git commit to the end of the Stack ID.
-
-Defaults to false.
+| *Input*           | *Type*  | *Required* | *Default* | *Description*                                 |
+|-------------------|---------|------------|-----------|-----------------------------------------------|
+| stack-id          | string  | yes        |           | The ID of the Stack to Deploy                 |
+| add-branch-suffix | boolean | no         | false     | Appends a commit hash to the Stack ID         |
+| ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the workflow |
 
 ## Action Outputs
 
 ## `stack-output`
 
-A JSON string containing the contents of any CDKOutputs defined in the Stack.
+| *Output*     | *type* | *Description*                                            |
+|--------------|--------|----------------------------------------------------------|
+| stack-output | string | The JSON contents of all CDKOutputs defined in the Stack |
 
 ## Example Usage
 
 ```yaml
-uses: rivelinrobotics/deploy-aws-cdk-stack@v1
-with:
-  stack-id: MyCustomStack
-  add-branch-suffix: true
+jobs:
+  perform-deployment:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOYMENT_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+          role-session-name: GithubRunnerDeployment
+      - name: Deploy to AWS
+        uses: rivelinrobotics/deploy-aws-cdk-stack@v1
+        with:
+          stack-id: MyCustomStack
+          add-branch-suffix: true
+          ephemeral: true
 ```
