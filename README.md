@@ -10,15 +10,6 @@ This action deploys a Stack to AWS using the Cloud Development Kit (CDK).
 
 The ID of the Stack to deploy.
 
-### `deploy-role-arn`
-
-**Required** 
-
-The Amazon Resource Name (ARN) of the IAM Role to assume for deployment.
-
-This role must have the appropriate CloudFormation permissions, and the Trust Policy must
-allow the repository using this action to assume the Role via a GitHub OIDC Identity Provider.
-
 ### `add-branch-suffix`
 
 **Optional**
@@ -36,9 +27,8 @@ A JSON string containing the contents of any CDKOutputs defined in the Stack.
 ## Example Usage
 
 ```yaml
-uses: actions/deploy-aws-cdk-stack@v1
+uses: rivelinrobotics/deploy-aws-cdk-stack@v1
 with:
   stack-id: MyCustomStack
-  deploy-role-arn: arn:aws:iam::123456789012:role/DeploymentRole
   add-branch-suffix: true
 ```

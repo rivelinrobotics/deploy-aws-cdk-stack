@@ -1,0 +1,16 @@
+name: rivelinrobotics/deploy-aws-cdk-stack
+description: Deploys a Stack to AWS using the Cloud Development Kit (CDK)
+inputs:
+  stack-id:
+    description: The ID of the Stack to deploy
+    required: true
+  add-branch-suffix:
+    description: Adds a short commit hash to the Stack ID
+    required: false
+    default: false
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.stack-id }}
+    - ${{ inputs.add-branch-suffix }}
