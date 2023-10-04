@@ -5,13 +5,18 @@ This action deploys a Stack to AWS using the Cloud Development Kit (CDK).
 This action should be used in conjunction with the [Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials) action to assume
 a Role with appropriate CloudFormation acess and a Trust Policy allowing a runner to assume the Role via a GitHub OIDC Identity Provider.
 
+Currently, the action supports:
+
+- Deployment of branch-scoped Stacks, through the use of a Stack suffix
+- Deployment of ephemeral Stacks, which are destroyed at the end of a Job.
+
 ## Action Inputs
 
-| *Input*           | *Type*  | *Required* | *Default* | *Description*                                 |
-|-------------------|---------|------------|-----------|-----------------------------------------------|
-| stack-id          | string  | yes        |           | The ID of the Stack to Deploy                 |
-| add-branch-suffix | boolean | no         | false     | Appends a commit hash to the Stack ID         |
-| ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the workflow |
+| *Input*           | *Type*  | *Required* | *Default* | *Description*                            |
+|-------------------|---------|------------|-----------|------------------------------------------|
+| stack-id          | string  | yes        |           | The ID of the Stack to Deploy            |
+| add-branch-suffix | boolean | no         | false     | Appends a commit hash to the Stack ID    |
+| ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the Job |
 
 ## Action Outputs
 
