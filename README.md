@@ -41,9 +41,12 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
           role-session-name: GithubRunnerDeployment
       - name: Deploy to AWS
+        id: deploy
         uses: rivelinrobotics/deploy-aws-cdk-stack@v1
         with:
           stack-id: MyCustomStack
           add-branch-suffix: true
           ephemeral: true
+      - name: Access Stack Output
+        run: echo ${{ fromJSON(steps.deploy.outputs.stack-output).MyCustomValue }}
 ```
