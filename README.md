@@ -2,6 +2,9 @@
 
 This action deploys a Stack to AWS using the Cloud Development Kit (CDK).
 
+This action should be used in conjunction with the [Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials) action to assume
+a Role with appropriate CloudFormation acess and a Trust Policy allowing a runner to assume the Role via a GitHub OIDC Identity Provider.
+
 ## Action Inputs
 
 | *Input*           | *Type*  | *Required* | *Default* | *Description*                                 |
