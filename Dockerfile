@@ -9,6 +9,3 @@ RUN pip3 install \
     constructs==10.2.70
 
 COPY ./deploy.sh /deploy.sh
-
-WORKDIR /github/workspace
-ENTRYPOINT [ "/deploy.sh" ]
