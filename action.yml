@@ -21,4 +21,3 @@ runs:
   args:
     - ${{ inputs.stack-id }}
     - ${{ inputs.add-branch-suffix }}
-    - /home/runner/work/${GITHUB_REPOSITORY#*/}/${GITHUB_REPOSITORY#*/}
