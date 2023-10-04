@@ -21,4 +21,3 @@ runs:
   args:
     - ${{ inputs.stack-id }}
     - ${{ inputs.add-branch-suffix }}
-    - /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}

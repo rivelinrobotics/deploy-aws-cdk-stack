@@ -2,10 +2,7 @@
 
 STACK_ID=${1}
 ADD_STACK_SUFFIX=${2}
-PROJECT_ROOT=${3}
 FULL_STACK_ID=${STACK_ID}
-
-cd ${PROJECT_ROOT}
 
 if [ ${ADD_STACK_SUFFIX} == "true" ]; then
     git config --global --add safe.directory /github/workspace
