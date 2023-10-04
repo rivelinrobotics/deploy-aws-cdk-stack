@@ -3,9 +3,8 @@
 STACK_ID=${1}
 ADD_STACK_SUFFIX=${2}
 FULL_STACK_ID=${STACK_ID}
-PROJECT_ROOT=/home/runner/work/${GITHUB_REPOSITORY#*/}/${GITHUB_REPOSITORY#*/}
 
-cd ${PROJECT_ROOT}
+cd /github/workspace
 
 if [ ${ADD_STACK_SUFFIX} == "true" ]; then
     git config --global --add safe.directory /github/workspace
