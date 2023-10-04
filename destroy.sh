@@ -16,7 +16,7 @@ if [ ${INPUT_EPHEMERAL} == "true" ]; then
     fi
 
     cdk destroy \
-        --require-approval never \
+        --force \
         --exclusively \
         ${FULL_STACK_ID}
 
