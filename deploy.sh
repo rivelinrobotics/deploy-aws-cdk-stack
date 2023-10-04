@@ -26,3 +26,5 @@ if [ ${ADD_STACK_SUFFIX} == "true" ]; then
     rm app.py
     mv app.py.tmp app.py
 fi
+
+echo "stack-output=$(cat .cdk-outputs.json | jq -r '.${FULL_STACK_ID}')" >> $GITHUB_OUTPUT
