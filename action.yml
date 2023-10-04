@@ -17,7 +17,7 @@ runs:
   image: Dockerfile
   entrypoint: /deploy.sh
   post-entrypoint: /destroy.sh
-  post-if: github.events.inputs.ephemeral
+  post-if: github.event.inputs.ephemeral
   args:
     - ${{ inputs.stack-id }}
     - ${{ inputs.add-branch-suffix }}
