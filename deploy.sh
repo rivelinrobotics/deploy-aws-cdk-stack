@@ -13,7 +13,7 @@ if [ ${ADD_STACK_SUFFIX} == "true" ]; then
     sed "s/\"${STACK_ID}\"/\"${FULL_STACK_ID}\"/g" app.py.tmp > app.py
 fi
 
-cdk synth \
+cdk deploy \
     --require-approval never \
     --outputs-file .cdk-outputs.json \
     --exclusively \
