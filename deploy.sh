@@ -6,6 +6,8 @@ FULL_STACK_ID=${STACK_ID}
 
 cd /github/workspace
 
+ls /github/workspace -a
+
 if [ ${ADD_STACK_SUFFIX} == "true" ]; then
     git config --global --add safe.directory /github/workspace
     FULL_STACK_ID=${STACK_ID}$(git rev-parse --short HEAD)
