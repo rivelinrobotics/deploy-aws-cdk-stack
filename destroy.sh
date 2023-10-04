@@ -6,7 +6,7 @@ FULL_STACK_ID=${STACK_ID}
 
 cd /github/workspace
 
-if [${INPUT_EPHEMERAL} == "true"]; then
+if [ ${INPUT_EPHEMERAL} == "true" ]; then
 
     if [ ${ADD_STACK_SUFFIX} == "true" ]; then
         git config --global --add safe.directory /github/workspace
