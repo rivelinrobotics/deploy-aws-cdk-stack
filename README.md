@@ -12,11 +12,12 @@ Currently, the action supports:
 
 ## Action Inputs
 
-| *Input*           | *Type*  | *Required* | *Default* | *Description*                            |
-|-------------------|---------|------------|-----------|------------------------------------------|
-| stack-id          | string  | yes        |           | The ID of the Stack to Deploy            |
-| add-branch-suffix | boolean | no         | false     | Appends a commit hash to the Stack ID    |
-| ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the Job |
+| *Input*           | *Type*  | *Required* | *Default* | *Description*                               |
+|-------------------|---------|------------|-----------|---------------------------------------------|
+| stack-id          | string  | yes        |           | The ID of the Stack to Deploy               |
+| add-branch-suffix | boolean | no         | false     | Appends a commit hash to the Stack ID       |
+| ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the Job    |
+| parameters        | string  | no         | ""        | CfnParameters of the form `k1=v1 k2=v2 ...` |
 
 ## Action Outputs
 
@@ -47,6 +48,10 @@ jobs:
           stack-id: MyCustomStack
           add-branch-suffix: true
           ephemeral: true
+          parameters: >
+            Parameter1=Value1
+            Parameter2=Value2
+            Parameter3=Value3
       - name: Access Stack Output
         run: echo ${{ fromJSON(steps.deploy.outputs.stack-output).MyCustomValue }}
 ```

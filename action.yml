@@ -12,6 +12,10 @@ inputs:
     description: Destroys the Stack at the end of the workflow
     required: false
     default: false
+  parameters:
+    description: CfnParameters of the form `k1=v1 k2=v2 ...`
+    required: false
+    default: ""
 runs:
   using: docker
   image: Dockerfile
@@ -21,3 +25,4 @@ runs:
   args:
     - ${{ inputs.stack-id }}
     - ${{ inputs.add-branch-suffix }}
+    - ${{ inputs.parameters }}
