@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
    - Bug fixes go here
 
-## [1.1.0] - 2023-10-dd
+## [1.1.0] - 2023-10-10
 
 ### :sparkles: Added 
 
