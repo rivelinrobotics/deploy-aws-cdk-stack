@@ -15,7 +15,7 @@ if [ ${ADD_STACK_SUFFIX} == "true" ]; then
     git config --global --add safe.directory ${CDK_PROJECT}
     FULL_STACK_ID=${STACK_ID}$(git rev-parse --short HEAD)
     mv app.py ${UNSCOPED_APP}
-    sed "s/${STACK_ID}/${FULL_STACK_ID}/g" ${UNSCOPED_APP} > app.py
+    sed "s/\"${STACK_ID}\"/\"${FULL_STACK_ID}\"/g" ${UNSCOPED_APP} > app.py
 fi
 
 for PARAMETER in ${PARAMETER_STRING}; do
