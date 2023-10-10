@@ -28,9 +28,9 @@ echo AWS_SOFTWARE_SERVICES_ACCOUNT=${AWS_SOFTWARE_SERVICES_ACCOUNT}
 cdk deploy \
     --require-approval never \
     --outputs-file ${OUTPUT_FILE} \
-    ${CFN_PARAMETERS} \
     --exclusively \
-    ${FULL_STACK_ID}
+    ${FULL_STACK_ID} \
+    ${CFN_PARAMETERS}
 
 chmod a+rw -R cdk.out
 chmod a+rw -R ${OUTPUT_FILE}
