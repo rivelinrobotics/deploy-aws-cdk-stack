@@ -22,6 +22,8 @@ for PARAMETER in ${PARAMETER_STRING}; do
     CFN_PARAMETERS=$(echo ${CFN_PARAMETERS} | sed "s/\"${PARAMETER}\"/--parameters \"${PARAMETER}\"/g")
 done
 
+echo CFN_PARAMETERS=${CFN_PARAMETERS}
+
 cdk deploy \
     --require-approval never \
     --outputs-file ${OUTPUT_FILE} \
