@@ -19,10 +19,11 @@ if [ ${ADD_STACK_SUFFIX} == "true" ]; then
 fi
 
 for PARAMETER in ${PARAMETER_STRING}; do
-    CFN_PARAMETERS=$(echo ${CFN_PARAMETERS} | sed "s/\"${PARAMETER}\"/--parameters \"${PARAMETER}\"/g")
+    CFN_PARAMETERS=$(echo ${CFN_PARAMETERS} | sed "s/\"${PARAMETER}\"/\"--parameters ${PARAMETER}\"/g")
 done
 
 echo CFN_PARAMETERS=${CFN_PARAMETERS}
+echo AWS_SOFTWARE_SERVICES_ACCOUNT=${AWS_SOFTWARE_SERVICES_ACCOUNT}"
 
 cdk deploy \
     --require-approval never \
