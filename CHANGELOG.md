@@ -27,6 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
    - Bug fixes go here
 
+## [1.1.0] - 2023-10-dd
+
+### :sparkles: Added 
+
+- Adds support for passing CfnParameter values to CDK through the `parameters` input
+
 ## [1.0.0] - 2023-10-04
 
 ### :sparkles: Added
