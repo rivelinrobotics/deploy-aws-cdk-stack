@@ -2,6 +2,8 @@
 
 STACK_ID=${1}
 ADD_STACK_SUFFIX=${2}
+PARAMETER_STRING=${3}
+CFN_PARAMETERS=${PARAMETER_STRING}
 FULL_STACK_ID=${STACK_ID}
 UNSCOPED_APP=app.py.tmp
 OUTPUT_FILE=.cdk-outputs.json
@@ -16,9 +18,14 @@ if [ ${ADD_STACK_SUFFIX} == "true" ]; then
     sed "s/\"${STACK_ID}\"/\"${FULL_STACK_ID}\"/g" ${UNSCOPED_APP} > app.py
 fi
 
+for PARAMETER in ${PARAMETER_STRING}; do
+    CFN_PARAMETERS=$(echo ${CFN_PARAMETERS} | sed "s/\"${PARAMETER}\"/--parameters \"${PARAMETER}\"/g")
+done
+
 cdk deploy \
     --require-approval never \
     --outputs-file ${OUTPUT_FILE} \
+    ${CFN_PARAMETERS} \
     --exclusively \
     ${FULL_STACK_ID}
 
