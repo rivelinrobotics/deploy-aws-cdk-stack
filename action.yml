@@ -16,6 +16,10 @@ inputs:
     description: CfnParameters of the form `k1=v1 k2=v2 ...`
     required: false
     default: ""
+  app-file:
+    description: The path to the CDK app file
+    required: false
+    default: "app.py"
 runs:
   using: docker
   image: Dockerfile
@@ -26,3 +30,4 @@ runs:
     - ${{ inputs.stack-id }}
     - ${{ inputs.add-branch-suffix }}
     - ${{ inputs.parameters }}
+    - ${{ inputs.app-file }}

@@ -18,6 +18,7 @@ Currently, the action supports:
 | add-branch-suffix | boolean | no         | false     | Appends a commit hash to the Stack ID       |
 | ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the Job    |
 | parameters        | string  | no         | ""        | CfnParameters of the form `k1=v1 k2=v2 ...` |
+| app-file          | string  | no         | "app.py   | Path to the CDK App file                    |
 
 ## Action Outputs
 
@@ -52,6 +53,7 @@ jobs:
             Parameter1=Value1
             Parameter2=Value2
             Parameter3=Value3
+          app_file: ./aws/app.py
       - name: Access Stack Output
         run: echo ${{ fromJSON(steps.deploy.outputs.stack-output).MyCustomValue }}
 ```
