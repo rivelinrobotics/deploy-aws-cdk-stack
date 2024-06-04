@@ -20,6 +20,10 @@ inputs:
     description: The path to the CDK app file
     required: false
     default: "app.py"
+  bootstrap:
+    decription: Whether or not to bootstrap the AWS account before deploying
+    required: false
+    default: false
 runs:
   using: docker
   image: Dockerfile
@@ -31,3 +35,4 @@ runs:
     - ${{ inputs.add-branch-suffix }}
     - ${{ inputs.parameters }}
     - ${{ inputs.app-file }}
+    - ${{ inputs.bootstrap }}

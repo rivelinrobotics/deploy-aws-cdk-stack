@@ -19,7 +19,8 @@ Currently, the action supports:
 | ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the Job    |
 | parameters        | string  | no         | ""        | CfnParameters of the form `k1=v1 k2=v2 ...` |
 | app-file          | string  | no         | app.py    | Path to the CDK App file                    |
-
+| bootstrap         | boolean | no         | false     | Whether to bootstrap the AWS account        |
+    
 ## Action Outputs
 
 | *Output*     | *type* | *Description*                                            |
@@ -49,6 +50,7 @@ jobs:
           app-file: ./aws/app.py
           stack-id: MyCustomStack
           add-branch-suffix: true
+          bootstrap: true
           ephemeral: true
           parameters: >
             Parameter1=Value1
