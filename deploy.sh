@@ -4,6 +4,7 @@ STACK_ID=${1}
 ADD_STACK_SUFFIX=${2}
 PARAMETER_STRING=${3}
 APP_FILE=${4}
+BOOTSTRAP=${5}
 CFN_PARAMETERS=${PARAMETER_STRING}
 FULL_STACK_ID=${STACK_ID}
 UNSCOPED_APP=${APP_FILE}.tmp
@@ -22,6 +23,10 @@ fi
 for PARAMETER in ${PARAMETER_STRING}; do
     CFN_PARAMETERS=$(echo ${CFN_PARAMETERS} | sed "s/${PARAMETER}/--parameters ${PARAMETER}/g")
 done
+
+if [ ${BOOTSTRAP} == "true" ]; then
+    cdk bootstrap --require-approval never
+fi
 
 cdk deploy \
     --require-approval never \
