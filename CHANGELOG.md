@@ -27,6 +27,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
    - Bug fixes go here
 
+## [1.2.0] - 2024-06-04
+
+### :sparkles: Added
+
+- Adds support for passing custom app path through the `app-file` input
+- Adds cdk-nag and identity pool alpha as dependencies
+
+### :pencil2: Changed
+
+- Bumps CDK dependency versions
+
 ## [1.1.0] - 2023-10-10
 
 ### :sparkles: Added 
