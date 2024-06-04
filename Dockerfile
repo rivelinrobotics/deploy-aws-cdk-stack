@@ -1,6 +1,6 @@
 FROM node:20-alpine3.17
 
-RUN npm install -g aws-cdk@2.99.1
+RUN npm install -g aws-cdk@2.144.0
 RUN apk add --no-cache \
     py3-pip \
     git \
