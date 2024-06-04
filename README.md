@@ -46,6 +46,7 @@ jobs:
         id: deploy
         uses: rivelinrobotics/deploy-aws-cdk-stack@v1
         with:
+          app-file: ./aws/app.py
           stack-id: MyCustomStack
           add-branch-suffix: true
           ephemeral: true
@@ -53,7 +54,6 @@ jobs:
             Parameter1=Value1
             Parameter2=Value2
             Parameter3=Value3
-          app_file: ./aws/app.py
       - name: Access Stack Output
         run: echo ${{ fromJSON(steps.deploy.outputs.stack-output).MyCustomValue }}
 ```
