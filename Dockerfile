@@ -9,7 +9,8 @@ RUN pip3 install \
     aws-cdk.aws-cognito-identitypool-alpha==2.144.0a0 \
     aws-cdk-lib==2.144.0 \
     constructs==10.3.0 \
-    cdk-nag==2.28.130
+    cdk-nag==2.28.130 \
+    pyyaml==6.0.1
 
 COPY ./deploy.sh /deploy.sh
 COPY ./destroy.sh /destroy.sh
