@@ -27,7 +27,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
    - Bug fixes go here
 
-## [1.3.9] - 2024-06-04
+## [2.0.0] - 2024-06-10
+
+### :pencil2: Changed
+
+- Changes `stack-id` to `stack-pattern`
+
+### :no_entry_sign: Removed
+
+  - Removes `bootstrap` input
+  - Removes `add-branch-suffix` argument in favour of using `BranchScopedStack`
+
+## [1.3.0] - 2024-06-04
 
 ### :sparkles: Added
 

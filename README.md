@@ -14,12 +14,10 @@ Currently, the action supports:
 
 | *Input*           | *Type*  | *Required* | *Default* | *Description*                               |
 |-------------------|---------|------------|-----------|---------------------------------------------|
-| stack-id          | string  | yes        |           | The ID of the Stack to Deploy               |
-| add-branch-suffix | boolean | no         | false     | Appends a commit hash to the Stack ID       |
+| stack-pattern     | string  | yes        |           | Regex matching the ID of the Stack to Deploy|
 | ephemeral         | boolean | no         | false     | Destroys the Stack at the end of the Job    |
 | parameters        | string  | no         | ""        | CfnParameters of the form `k1=v1 k2=v2 ...` |
 | app-file          | string  | no         | app.py    | Path to the CDK App file                    |
-| bootstrap         | boolean | no         | false     | Whether to bootstrap the AWS account        |
     
 ## Action Outputs
 
@@ -49,8 +47,6 @@ jobs:
         with:
           app-file: ./aws/app.py
           stack-id: MyCustomStack
-          add-branch-suffix: true
-          bootstrap: true
           ephemeral: true
           parameters: >
             Parameter1=Value1

@@ -1,13 +1,9 @@
 name: rivelinrobotics/deploy-aws-cdk-stack
 description: Deploys a Stack to AWS using the Cloud Development Kit (CDK)
 inputs:
-  stack-id:
-    description: The ID of the Stack to deploy
+  stack-pattern:
+    description: A pattern matching the ID of the Stack to deploy
     required: true
-  add-branch-suffix:
-    description: Adds a short commit hash to the Stack ID
-    required: false
-    default: false
   ephemeral:
     description: Destroys the Stack at the end of the workflow
     required: false
@@ -20,10 +16,6 @@ inputs:
     description: The path to the CDK app file
     required: false
     default: "app.py"
-  bootstrap:
-    decription: Whether or not to bootstrap the AWS account before deploying
-    required: false
-    default: false
 runs:
   using: docker
   image: Dockerfile
@@ -32,7 +24,5 @@ runs:
   post-if: always()
   args:
     - ${{ inputs.stack-id }}
-    - ${{ inputs.add-branch-suffix }}
     - ${{ inputs.parameters }}
     - ${{ inputs.app-file }}
-    - ${{ inputs.bootstrap }}
