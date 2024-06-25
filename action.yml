@@ -23,6 +23,6 @@ runs:
   post-entrypoint: /destroy.sh
   post-if: always()
   args:
-    - ${{ inputs.stack-id }}
+    - ${{ inputs.stack-pattern }}
     - ${{ inputs.parameters }}
     - ${{ inputs.app-file }}
