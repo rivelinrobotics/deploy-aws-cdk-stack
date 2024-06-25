@@ -7,6 +7,7 @@ RUN apk add --no-cache \
     jq
 RUN pip3 install \
     aws-cdk.aws-cognito-identitypool-alpha==2.144.0a0 \
+    aws-cdk.aws-lambda-python-alpha==2.144.0a0 \
     aws-cdk-lib==2.144.0 \
     constructs==10.3.0 \
     cdk-nag==2.28.130 \
