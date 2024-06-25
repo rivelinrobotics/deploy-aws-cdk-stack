@@ -1,6 +1,7 @@
 FROM node:20-alpine3.17
 
-RUN npm install -g aws-cdk@2.144.0 esbuild@0.21.5
+RUN npm install -g aws-cdk@2.144.0
+RUN npm install -g -D esbuild@0.21.5
 RUN apk add --no-cache \
     py3-pip \
     git \
