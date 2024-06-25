@@ -27,6 +27,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
    - Bug fixes go here
 
+## [2.0.2] - 2024-06-25
+
+### :pencil2: Changed
+
+- Adds aws_cdk.aws-lambda-python-alpha as a dependency
+
+### :wrench: Fixed
+
+   - Fixes `stack-pattern` argument
+
 ## [2.0.0] - 2024-06-10
 
 ### :pencil2: Changed
