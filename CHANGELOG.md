@@ -27,6 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
    - Bug fixes go here
 
+## [2.0.3] - 2024-07-12
+
+### :wrench: Fixed
+
+   - Fixes `stack-output` output when deploying multiple stacks
+
 ## [2.0.2] - 2024-06-25
 
 ### :pencil2: Changed
