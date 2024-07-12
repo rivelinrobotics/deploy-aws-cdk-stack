@@ -25,5 +25,4 @@ cdk deploy \
 
 chmod a+rw -R cdk.out
 chmod a+rw -R ${OUTPUT_FILE}
-cat ${OUTPUT_FILE}
-echo "stack-output=$(cat ${OUTPUT_FILE}" >> $GITHUB_OUTPUT
+echo "stack-output=$(cat ${OUTPUT_FILE} | jq -c add)" >> $GITHUB_OUTPUT
